@@ -1,0 +1,115 @@
+{
+  "results": {
+    "scifact_entailment": {
+      "alias": "scifact_entailment",
+      "bypass,none": 999,
+      "bypass_stderr,none": "N/A"
+    }
+  },
+  "group_subtasks": {
+    "scifact_entailment": []
+  },
+  "configs": {
+    "scifact_entailment": {
+      "task": "scifact_entailment",
+      "tag": [
+        "science_adapt"
+      ],
+      "group": [
+        "science_adapt"
+      ],
+      "dataset_path": "allenai/SciRIFF",
+      "dataset_name": "4096",
+      "validation_split": "validation",
+      "process_docs": "functools.partial(<function filter_task at 0x7f116c2ff9c0>, task='scifact_entailment')",
+      "doc_to_text": "input",
+      "doc_to_target": "output",
+      "description": "",
+      "target_delimiter": "\n",
+      "fewshot_delimiter": "\n\n--------------------\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "bypass"
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n\n--------------------\n\n"
+        ],
+        "do_sample": false,
+        "max_gen_toks": 1024
+      },
+      "repeats": 1,
+      "should_decontaminate": false
+    }
+  },
+  "versions": {
+    "scifact_entailment": "Yaml"
+  },
+  "n-shot": {
+    "scifact_entailment": 0
+  },
+  "higher_is_better": {
+    "scifact_entailment": {
+      "bypass": true
+    }
+  },
+  "n-samples": {
+    "scifact_entailment": {
+      "original": 184,
+      "effective": 184
+    }
+  },
+  "config": {
+    "model": "vllm",
+    "model_args": "pretrained=Qwen/Qwen2.5-7B-Instruct,tensor_parallel_size=1,dtype=float16",
+    "batch_size": "1",
+    "batch_sizes": [],
+    "device": null,
+    "use_cache": null,
+    "limit": null,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": {
+      "max_gen_toks": 1024
+    },
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "3cef48d",
+  "date": 1736550273.36027,
+  "pretty_env_info": "PyTorch version: 2.5.1+cu124\nIs debug build: False\nCUDA used to build PyTorch: 12.4\nROCM used to build PyTorch: N/A\n\nOS: Ubuntu 20.04.6 LTS (x86_64)\nGCC version: (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0\nClang version: Could not collect\nCMake version: Could not collect\nLibc version: glibc-2.31\n\nPython version: 3.11.10 (main, Oct  3 2024, 07:29:13) [GCC 11.2.0] (64-bit runtime)\nPython platform: Linux-5.15.0-60-generic-x86_64-with-glibc2.31\nIs CUDA available: True\nCUDA runtime version: Could not collect\nCUDA_MODULE_LOADING set to: LAZY\nGPU models and configuration: GPU 0: NVIDIA L40S\nNvidia driver version: 525.147.05\ncuDNN version: Could not collect\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nArchitecture:                    x86_64\nCPU op-mode(s):                  32-bit, 64-bit\nByte Order:                      Little Endian\nAddress sizes:                   48 bits physical, 48 bits virtual\nCPU(s):                          256\nOn-line CPU(s) list:             0-254\nOff-line CPU(s) list:            255\nThread(s) per core:              1\nCore(s) per socket:              64\nSocket(s):                       2\nNUMA node(s):                    2\nVendor ID:                       AuthenticAMD\nCPU family:                      25\nModel:                           1\nModel name:                      AMD EPYC 7713 64-Core Processor\nStepping:                        1\nFrequency boost:                 enabled\nCPU MHz:                         2910.855\nCPU max MHz:                     3720.7029\nCPU min MHz:                     1500.0000\nBogoMIPS:                        4000.35\nVirtualization:                  AMD-V\nL1d cache:                       2 MiB\nL1i cache:                       2 MiB\nL2 cache:                        32 MiB\nL3 cache:                        256 MiB\nNUMA node0 CPU(s):               0-63,128-191\nNUMA node1 CPU(s):               64-127,192-254\nVulnerability Itlb multihit:     Not affected\nVulnerability L1tf:              Not affected\nVulnerability Mds:               Not affected\nVulnerability Meltdown:          Not affected\nVulnerability Mmio stale data:   Not affected\nVulnerability Retbleed:          Not affected\nVulnerability Spec store bypass: Mitigation; Speculative Store Bypass disabled via prctl and seccomp\nVulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:        Mitigation; Retpolines, IBPB conditional, IBRS_FW, STIBP always-on, RSB filling, PBRSB-eIBRS Not affected\nVulnerability Srbds:             Not affected\nVulnerability Tsx async abort:   Not affected\nFlags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf rapl pni pclmulqdq monitor ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs skinit wdt tce topoext perfctr_core perfctr_nb bpext perfctr_llc mwaitx cpb cat_l3 cdp_l3 invpcid_single hw_pstate ssbd mba ibrs ibpb stibp vmmcall fsgsbase bmi1 avx2 smep bmi2 erms invpcid cqm rdt_a rdseed adx smap clflushopt clwb sha_ni xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local clzero irperf xsaveerptr rdpru wbnoinvd amd_ppin arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold v_vmsave_vmload vgif v_spec_ctrl umip pku ospke vaes vpclmulqdq rdpid overflow_recov succor smca fsrm\n\nVersions of relevant libraries:\n[pip3] mypy-extensions==1.0.0\n[pip3] numpy==1.26.4\n[pip3] torch==2.5.1\n[pip3] torchvision==0.20.1\n[pip3] triton==3.1.0\n[conda] numpy                     1.26.4                   pypi_0    pypi\n[conda] torch                     2.5.1                    pypi_0    pypi\n[conda] torchvision               0.20.1                   pypi_0    pypi\n[conda] triton                    3.1.0                    pypi_0    pypi",
+  "transformers_version": "4.47.0",
+  "upper_git_hash": null,
+  "tokenizer_pad_token": [
+    "<|endoftext|>",
+    "151643"
+  ],
+  "tokenizer_eos_token": [
+    "<|im_end|>",
+    "151645"
+  ],
+  "tokenizer_bos_token": [
+    null,
+    "None"
+  ],
+  "eot_token_id": 151645,
+  "max_length": 32768,
+  "task_hashes": {
+    "scifact_entailment": "f0a49c694d2a49372f22bd07faf3bd7b273df28a59b2ec561470e7373076a990"
+  },
+  "model_source": "vllm",
+  "model_name": "Qwen/Qwen2.5-7B-Instruct",
+  "model_name_sanitized": "Qwen__Qwen2.5-7B-Instruct",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": "{%- if tools %}\n    {{- '<|im_start|>system\\n' }}\n    {%- if messages[0]['role'] == 'system' %}\n        {{- messages[0]['content'] }}\n    {%- else %}\n        {{- 'You are Qwen, created by Alibaba Cloud. You are a helpful assistant.' }}\n    {%- endif %}\n    {{- \"\\n\\n# Tools\\n\\nYou may call one or more functions to assist with the user query.\\n\\nYou are provided with function signatures within <tools></tools> XML tags:\\n<tools>\" }}\n    {%- for tool in tools %}\n        {{- \"\\n\" }}\n        {{- tool | tojson }}\n    {%- endfor %}\n    {{- \"\\n</tools>\\n\\nFor each function call, return a json object with function name and arguments within <tool_call></tool_call> XML tags:\\n<tool_call>\\n{\\\"name\\\": <function-name>, \\\"arguments\\\": <args-json-object>}\\n</tool_call><|im_end|>\\n\" }}\n{%- else %}\n    {%- if messages[0]['role'] == 'system' %}\n        {{- '<|im_start|>system\\n' + messages[0]['content'] + '<|im_end|>\\n' }}\n    {%- else %}\n        {{- '<|im_start|>system\\nYou are Qwen, created by Alibaba Cloud. You are a helpful assistant.<|im_end|>\\n' }}\n    {%- endif %}\n{%- endif %}\n{%- for message in messages %}\n    {%- if (message.role == \"user\") or (message.role == \"system\" and not loop.first) or (message.role == \"assistant\" and not message.tool_calls) %}\n        {{- '<|im_start|>' + message.role + '\\n' + message.content + '<|im_end|>' + '\\n' }}\n    {%- elif message.role == \"assistant\" %}\n        {{- '<|im_start|>' + message.role }}\n        {%- if message.content %}\n            {{- '\\n' + message.content }}\n        {%- endif %}\n        {%- for tool_call in message.tool_calls %}\n            {%- if tool_call.function is defined %}\n                {%- set tool_call = tool_call.function %}\n            {%- endif %}\n            {{- '\\n<tool_call>\\n{\"name\": \"' }}\n            {{- tool_call.name }}\n            {{- '\", \"arguments\": ' }}\n            {{- tool_call.arguments | tojson }}\n            {{- '}\\n</tool_call>' }}\n        {%- endfor %}\n        {{- '<|im_end|>\\n' }}\n    {%- elif message.role == \"tool\" %}\n        {%- if (loop.index0 == 0) or (messages[loop.index0 - 1].role != \"tool\") %}\n            {{- '<|im_start|>user' }}\n        {%- endif %}\n        {{- '\\n<tool_response>\\n' }}\n        {{- message.content }}\n        {{- '\\n</tool_response>' }}\n        {%- if loop.last or (messages[loop.index0 + 1].role != \"tool\") %}\n            {{- '<|im_end|>\\n' }}\n        {%- endif %}\n    {%- endif %}\n{%- endfor %}\n{%- if add_generation_prompt %}\n    {{- '<|im_start|>assistant\\n' }}\n{%- endif %}\n",
+  "chat_template_sha": "cd8e9439f0570856fd70470bf8889ebd8b5d1107207f67a5efb46e342330527f",
+  "start_time": 2086117.050632584,
+  "end_time": 2086500.936479286,
+  "total_evaluation_time_seconds": "383.88584670214914"
+}
