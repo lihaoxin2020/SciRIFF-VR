@@ -19,6 +19,15 @@ def token_f1(entries):
         res.append(score)
     return sum(res) / len(res)
 
+def mc_f1(entries):
+    res = []
+    for entry in entries: 
+        # output labels or output option text
+        if entry["pred"].lower().strip()[:2] == entry["ref"].lower().strip()[:2] or \
+        entry["pred"].lower().strip() == entry["ref"].lower().strip()[2:].strip():
+            res.append(1)
+    return sum(res) / len(res)
+
 def list_f1(entries):
     res = {}
     json_parser = JSONParser(
@@ -252,7 +261,9 @@ TASK_MAPPING = {
     "bioasq_list_qa": list_f1, # list f1
     "bioasq_general_qa": summ_comparison, # llm_judge
     "bioasq_factoid_qa": bleu,
-    "qasa_abstractive_qa": summ_comparison # llm_judge
+    "qasa_abstractive_qa": summ_comparison, # llm_judge
+    "true-or-false": token_f1,
+    "multiple choice": mc_f1
 }
 
 lm_judge_dir = ""
@@ -456,4 +467,4 @@ else:
 
 print(score)
 
-# ex
+
